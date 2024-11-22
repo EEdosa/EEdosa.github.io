@@ -1,0 +1,322 @@
+<!DOCTYPE
+<html lang = "en">
+
+<meta charset="UTF-8">
+<title>My WebPage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 
+<!-- Style sheets-->    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+
+<!-- JavaScript files -->
+ <script src="script.js"></script>
+
+</head>
+
+<body onload='onload()'>
+    <div id='windowpage'>
+    <div id = "resumepage" class = " resume">
+        <div class = "resume-content" >
+
+        </div>
+    </div>   
+    </div>
+
+    <div id = 'desktop'>  
+        <div class="left-column">
+        <div class = "desktop-grid">
+
+    <figure class = "image-caption">
+    <img src="resumeicon.png" onclick = "showResume()" alt = "Logo" class = "resumelogo" >
+    <figcaption> RESUME </figcaption>
+        </figure>
+        <figure class = "image-caption">
+            <img src="steam.png" onclick = "showEducation()" alt = "Logo" class = "educationlogo" >
+            <figcaption>ABOUT ME</figcaption>
+        </figure>
+        <figure class = "image-caption">
+            <img src="educationicons.png" onclick = "showEducation()" alt = "Logo" class = "educationlogo" >
+            <figcaption>EDUCATION</figcaption>
+        </figure>
+        <figure class = "image-caption">
+            <img src="projects.png" onclick = "showProject()" alt = "Logo" class = "projectlogo" >
+            <figcaption> PROJECTS </figcaption>
+        </figure>
+        <figure class = "image-caption">
+            <a href="http://github.com/EEdosa">
+            <img src="github.png"  alt = "Logo" class = "experiencelogo" >
+        </a>
+            <figcaption> GITHUB </figcaption>
+        </figure>
+        <figure class = "image-caption">
+            <img src="recyle.png" onclick = "showExperience()" alt = "Logo" class = "experiencelogo" >
+            <figcaption> RECYLE BIN </figcaption>
+        </figure>
+        
+        </div>
+        </div>
+    
+       
+    
+
+
+ 
+
+    <div id="resumeModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <header>Resume
+                 <button type="button" class="close-image" onclick="closeResume()">
+                    <img src="oldwindowsx.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image">
+                    <img src="fullscreen.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image" onclick="minimizeresume()">
+                    <img src="minimize.png" alt = "Close" class = "close-image">
+                </button>
+            </header>
+                   <!-- Embed PDF using iframe -->
+        <iframe src="EdosaAigbuzaResume.pdf" width="100%" height="500px" style="border: none;">
+            Your browser does not support PDFs. Please <a href="EdosaAigbuzaResume.pdf">download the PDF</a>.
+        </iframe>
+         </div>
+        </div>
+    </div><!-- desktop div-->
+
+
+
+    <!-- add the resume as a image and add download option-->
+        <!-- Eductaion section-->
+ 
+        <div id="Educationmodal" class="educationmodal" style = "display: none;">
+            <div class="education-content">
+  <!-- TODO fix x button size-->
+            <header>Education
+                 <button type="button" class="close-image" onclick="closeEducation()">
+                    <img src="oldwindowsx.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image">
+                    <img src="fullscreen.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image" onclick="minimizeEducation()">
+                    <img src="minimize.png" alt = "Close" class = "close-image">
+                </button>
+            </header>
+            <div class="education-item">
+                <h3>University of Texas at Arlington</h3>
+                <p><strong>Degree:</strong> Bachelor of Science in Software Engineering</p>
+                <p><strong>Expected Graduation:</strong> May 2026</p>
+                <ul>
+                    <li>Relevant Coursework: Operating Systems, Data Structures, Algorithms, Fundementals of Software Engineering</li>
+                    <li>GPA: 3.1/4.0</li>
+                    <li>Extracurricular: National Society of Black Engineers, Video Game Developers Organization, Institute of Industrial and
+                        Systems Engineers Student Chapter</li>
+                </ul>
+            </div>
+    
+            <div class="education-item">
+                <h3>Dallas College</h3>
+                <p><strong>Degree:</strong> Associate of Science in Computer Science</p>
+                <p><strong>Graduation:</strong> August 2024 </p>
+                <ul>
+                 <!--  <li>Focus on Visual Design Principles and Creative Expression</li>
+                    <li>Improved skills in drawing, painting, and digital art</li>
+                    --> 
+                </ul>
+            </div>
+            </div>
+        </div>
+
+
+        <div id="Projectmodal" class="projectmodal" style = "display: none;">
+            <div class="project-content">
+                 <button type="button" class="close-image" onclick="closeProject()">
+                    <img src="oldwindowsx.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image">
+                    <img src="fullscreen.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image" onclick="minimizeProject()">
+                    <img src="minimize.png" alt = "Close" class = "close-image">
+                </button>
+
+                <header>Projects</header>
+                <div class="projectgridcontainer">
+                <div id="projectgrid" class="projecticontent">
+                    <figure class = "image-caption">
+                        <a href="http://cse3310.org">
+                        <img src="projects.png" onclick = "showProject()" alt = "Logo" class = "projectlogo" >
+                            </a>
+                        <figcaption> Word Search </figcaption>
+                        <h1>Technologies Used: JAVA, JavaScript, HTML, CSS, GITHUB, JSON, GITHUB Verison Control, Debugging Tools</h1>
+                        <ul>
+                            <li>Designed and developed a dynamic word search game supporting up to 4 players</li>
+                            <li>Built with Java, JavaScript, GJSON, HTML, and CSS.</li> 
+                            <li>Enhanced skills in full-stack development, real-time system design, and collaborative software development.</li> 
+                            <li>Used GitHub for version control and collaboration, adhering to Agile development practices.</li>
+                            <li>Implemented server-side logic with JSON to synchronize game states and updates across players in real time.</li> 
+                            <li>Built a chat feature that broadcasted messages to all players using JSON for communication.</li>  
+                        </ul>
+                    </figure>
+                    <figure class = "image-caption">
+                        <a href="http://github.com/EEdosa">
+                        <img src="blaze.png" onclick = "showProject()" alt = "Logo" class = "projectlogo" >
+                            </a>
+                        <figcaption> Maverick Operating System </figcaption>
+                        <h1>Technologies Used: C, Kernel Programming, Process Management, System Calls, Linux Environment, Debugging Tools</h1>
+                        <ul>
+                            <li>Designed and implemented a custom shell capable of executing user commands with features such as process monitoring and custom priority scheduling.</li>
+                            <li>Developed system calls (getpinfo, setPriority) in a Linux-like kernel, utilizing process control blocks (PCB) for tracking process attributes such as PID, priority, and execution ticks.</li> 
+                            <li>Utilized low-level C programming to interact with kernel structures and handle user space to kernel space communication securely.</li> 
+                            <li>Gained experience with concurrency and process synchronization, using locking mechanisms to ensure safe access to shared resources.</li>
+                            <li>Built a variant of the ps command to display running processes and their statistics by interfacing with the custom kernel system calls.</li> 
+                            <li>Debugged and tested using gdb, ensuring memory safety and performance optimization.</li>  
+                        </ul>
+                    </figure>            
+                <!--   <figure class = "image-caption">
+                        <a href=""> add link for project later
+                        <img src="projects.png" onclick = "showProject()" alt = "Logo" class = "projectlogo" >
+                            </a>
+                        <figcaption> FreeScribe </figcaption>
+                        <p>lololololololololol </p>
+                    </figure>      -->    
+                </div>
+            </div>
+                <p></p>
+            </div>
+        </div>
+
+        <div id="Aboutmodal" class="aboutmodal" style = "display: none;">
+            <div class="about-content">
+               
+                 <button type="button" class="close-image" onclick="closeEducation()">
+                    <img src="oldwindowsx.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image">
+                    <img src="fullscreen.png" alt = "Close" class = "close-image">
+                </button>
+                <button type="button" class="close-image" onclick="minimizeEducation()">
+                    <img src="minimize.png" alt = "Close" class = "close-image">
+                </button>
+                <header>About Me</header>
+
+            <div>
+                
+                <p>
+                  Hi there! I'm <strong>Edosa Justice Aigbuza</strong>, a Software Engineering student at the 
+                  <strong>University of Texas at Arlington</strong> with a passion for building innovative and 
+                  user-centric solutions. My journey combines my curiosity for <strong>automation and intelligent systems</strong>, 
+                  a growing interest in <strong>art and design</strong>, and a dedication to honing my skills in 
+                  <strong>frontend development</strong>, <strong>UI/UX design</strong>, and <strong>machine learning</strong>.
+                </p>
+                <p>
+                  I have experience working on diverse projects, including:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Multiplayer Word Search Game:</strong> Developed with Java, JavaScript, HTML, and CSS, this project included 
+                    real-time updates, a leaderboard, and a chat system—showcasing my ability to integrate creativity with technical rigor.
+                  </li>
+                  <li>
+                    <strong>React-based Applications:</strong> Crafting seamless user interfaces while integrating cutting-edge technologies 
+                    like machine learning.
+                  </li>
+                </ul>
+                <p>
+                  Currently, I’m pursuing opportunities in <strong>UI/UX design</strong> and <strong>frontend development</strong>, 
+                  actively applying my learnings from courses, projects, and internships to enhance my craft. Alongside, I’m updating my 
+                  portfolio website to reflect my journey and aspirations.
+                </p>
+                <p>
+                  Beyond coding, I’m a big fan of <strong>gaming</strong>, especially playing <strong>Apex Legends</strong> and exploring 
+                  <strong>indie games</strong>. I also enjoy <strong>thrifting</strong> for unique finds and delving into thought-provoking 
+                  stories like <em>Aristotle and Dante Discover the Secrets of the Universe</em>.
+                </p>
+                <p>
+                  Feel free to reach out if you'd like to collaborate or chat about technology, art, or even gaming and books. 
+                  Let’s create something amazing together!
+                </p>
+            </div>
+              
+            </div>
+        </div>
+
+
+
+    <!-- Taskbar -->
+<div id="taskbar">
+    <!-- Start Button -->
+    <div class="taskbar-item start-button">
+        <img src="windowsstart.png" alt="Start" class="taskbar-icon" onclick="toggleStartMenu()">
+    </div>
+
+    <!-- Taskbar Apps -->
+    <div class="taskbar-item apps">
+        <div class="app-icon" onclick="openApp('fileExplorer')">
+            <img src="taskmangericon.png" alt="File Explorer">
+        </div>
+        <div class="app-icon" onclick="openApp('browser')">
+            <img src="fileicon.png" alt="Browser">
+        </div>
+        <div class="app-icon"  id= "resumeicon" onclick="showResume()" style = "display: none">
+            <img src="resumeicon.png" alt="Browser" display="none">
+        </div>
+        <div class="app-icon"  id= "educationicon" onclick="showEducation()" style = "display: none">
+            <img src="educationicons.png" alt="Browser" display="none">
+        </div>
+        <div class="app-icon"  id= "projecticon" onclick="showProject()" style = "display: none">
+            <img src="projects.png" alt="Browser" display="none">
+        </div>
+        <!-- Add more app icons as needed -->
+    </div>
+
+    <!-- Clock -->
+    <div class="taskbar-item clock" id="clock"></div>
+
+    <div id="startMenu" class="start-menu">
+        <ul>
+            <li>
+                <img src ="resumeicon.png" alt ="Resume Icon" id = "startresumeicon" class="menu-icon" onclick="shutdown()">
+                <span>Resume</span>
+            </li>
+            <li>
+                <img src ="educationicons.png" alt ="Project Icon" id = "startprojecticon" class="menu-icon">
+                <span>Education</span>
+            </li>
+            <li>
+                <img src ="settingsicon.png" alt ="Settings Icon" id = "settingicon" class="menu-icon">
+                <span>Settings</span>
+            </li>
+
+            <li>
+                 <img src="shutdownicon.png" alt =" shut down icon" id = "shutdownicon" class = "menu-icon">
+                 <span>Shut Down...</span>
+            </li>
+        </ul>
+    </div>
+
+<div id = "shutdownscreen" class = "blackscreen">
+    <p> It's now safe to turn off your computer </p>
+
+    
+</div>
+
+
+
+
+
+
+
+</body>
+<!--
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <p id = "datetime" ></p>
+        </div>
+    </div>
+</footer> -->
+</html>

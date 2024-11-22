@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+body {
+    background-image:url("oldwindowsbackground.jpg") ;
+
+}
+
+#loginpage {
+    position: center;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    
+}
+
+
+.desktopapps {
+    width: 230px;
+    height:290px ;
+    background-color: white;
+    position: absolute;
+    top: 65px;
+    left: 12%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.left-column-container {
+    display: flex;
+    align-items: flex-start; /* Aligns content at the top */
+    justify-content: flex-start; /* Aligns content to the left */
+    padding: 20px;
+    width: 250px; /* Width of the left column */
+}
+.right{
+    bottom: 25px;
+    right: 25px;    
+}
+/* Container for the responsive grid */
+.desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(125px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    padding: 20px;
+    margin-right: 70%;
+}
+
+/* Each figure element */
+.image-caption {
+    position: relative; /* Makes it a positioned ancestor for the overlay */
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Highlight box for hover effect */
+.image-caption::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the box vertically */
+    left: 50%; /* Center the box horizontally */
+    transform: translate(-50%, -50%); /* Offset to center the box */
+    width: 120px; /* Size of the highlight box */
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.2); /* Light highlight color */
+    border-radius: 5px; /* Rounded corners for the highlight */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1; /* Ensures it stays behind the image */
+}
+
+/* Show highlight on hover */
+.image-caption:hover::before {
+    opacity: 1; /* Makes the box visible */
+    transform: translate(-50%, -50%) scale(1.1); /* Slight enlargement for effect */
+}
+
+/* Responsive image styling */
+.image-caption img {
+    width: 90%; /* Resizes relative to container */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 100px; /* Caps the max size */
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ensures it sits above the highlight box */
+}
+
+/* Hover effect for images */
+.image-caption img:hover {
+    transform: scale(1.1); /* Slightly enlarges on hover */
+}
+
+
+/* Caption styling */
+figcaption {
+    margin-top: 8px;
+    font-size: 1em; /* Responsive font */
+    color: #333;
+}
+
+.desktopapps:hover {
+    opacity: 25%; /* Makes overlay visible */
+ /* Expands to cover the icon */
+}
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    justify-content: center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Modal window */
+.modal-content {
+    background-color: #e4e1e1; /* White background */
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    height: 80vh;
+    border: 1px solid #888; /* Border around the modal */
+    width: 80%; /* Could be more or less, depending on screen size */
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+   /* justify-content: center;*/
+}
+.modal-content header{
+    text-align: left;
+    font-family: Oxanium;
+    font-size: 2rem;
+    background-color: #d0cccc;
+}
+.modal.open {
+    display: block;
+    opacity: 1;
+    transform: translate(0%, 0%) scale(1);
+}
+
+.modal.minimized {
+    transform: translate(-100vw, 100vh) scale(0.1); /* Move towards bottom left corner */
+    opacity: 0; /* Fades out */
+     /* Hide after animation */
+}
+
+
+.educationmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    justify-content: center;
+}
+.education-content{
+    background-color: #e4e1e1; /* White background */
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    
+    border: 1px solid #888; /* Border around the modal */
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.education-content header{
+    text-align: left;
+    font-family: Oxanium;
+    font-size: 2rem;
+    background-color: #d0cccc;
+}
+
+.education-content button {
+    color: black;
+    float: right;
+    background: none;
+    width: 25px;
+    height:30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.education-content button:hover{
+    transform:scale(.8);
+}
+
+.education-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Adds a dividing line between institutions */
+    font-family: Oxanium;
+}
+
+.education-item h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-family: Oxanium;
+}
+
+.education-item p {
+    margin: 5px 0;
+    font-family: Oxanium;
+}
+
+.education-item ul {
+    list-style-type: disc; /* Default bullet points */
+    margin-left: 20px;
+    font-family: Oxanium;
+}
+
+.education-item ul li {
+    margin-bottom: 5px;
+    font-family: Oxanium;
+}
+
+
+.projectmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+.project-content{
+    background-color: #e4e1e1; /* White background */
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Border around the modal */
+    height: 80vh;
+    width: 80%; /* Could be more or less, depending on screen size */
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    text-align: right;
+     
+}
+.project-content header{
+    text-align: left;
+    font-family: Oxanium;
+    font-size: 2rem;
+    background-color: #d0cccc;
+}
+.project-content ul {
+    margin: 10px 0; /* Add some space around the list */
+    padding-left: 20px; /* Indent the list from the left */
+    list-style-type: disc; /* Default bullet style (disc) */
+    font-family: Oxanium; /* Use Oxanium font */
+}
+
+.project-content li {
+    margin-bottom: 5px; /* Add space between bullet points */
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.5; /* Adjust line height for better readability */
+    font-family: Oxanium; /* Use Oxanium font */
+}
+
+.project-content ul li:last-child {
+    margin-bottom: 0; /* Remove space after the last item */
+}
+
+
+.project-content h1{
+    font-size: 1em;
+    font-family: Oxanium;
+}
+.project-content button {
+    color: black;
+    float: right;
+    background: none;
+    width: 25px;
+    height:30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.project-content button:hover{
+    transform:scale(.8);
+}
+
+/*.projectgridcontainer{
+    
+        display: flex;
+        align-items: flex-start; Aligns content at the top 
+        justify-content: flex-start;  Aligns content to the left 
+        padding: 20px;
+        width: 250px;  Width of the left column
+    
+} */
+ .projectgrid{
+    
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 2fr)); /* Responsive columns */
+        gap: 20px;
+        padding: 20px;
+        margin-right: 70%; 
+        justify-content: flex-start;
+        align-items: flex-start;
+ }
+
+/*.modal-header {
+    padding: 10px 16px;
+    background-color: #5cb85c;
+    color: green;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-family: Oxanium;
+    margin-top: 0px;
+}
+*/
+.modal-content button {
+    color: black;
+    float: right;
+    background: none;
+    width: 25px;
+    height:30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.modal-content button:hover{
+    transform:scale(.8);
+}
+.close-image {
+    width:24px;
+    height:24px;
+    border: none;
+    background:none;
+    cursor: pointer;
+}
+
+.aboutmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+.about-content{
+    background-color: #e4e1e1; /* White background */
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Border around the modal */
+    height: 80vh;
+    width: 80%; /* Could be more or less, depending on screen size */
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    text-align: right;
+     font-family: Oxanium;
+}
+.about-content header{
+    text-align: left;
+    font-family: Oxanium;
+    font-size: 2rem;
+    background-color: #d0cccc;
+}
+.about-content button {
+    color: black;
+    float: right;
+    background: none;
+    width: 25px;
+    height:30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.about-content button:hover{
+    transform:scale(.8);
+}
+
+.about-content p {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+  
+  /* List styles */
+  .about-content ul {
+    list-style-type: disc;
+    margin: 15px 20px;
+    padding-left: 20px;
+  }
+  
+  .about-content ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Highlight styles */
+  .about-content strong {
+    color: #3498db;
+    font-weight: bold;
+  }
+  
+  .about-content em {
+    font-style: italic;
+    color: #9b59b6;
+  }
+  
+
+/* TDOD fix image */
+
+
+
+/* Taskbar container */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #b0adad;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+}
+
+/* Taskbar items */
+.taskbar-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Start button styling */
+.start-button {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-button img {
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+}
+
+.start-button img:hover{
+    transform: scale(1.1);
+}
+
+/* Start menu */
+.start-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    width: 200px;
+    background-color: #b0adad;
+    border: 2px solid #808080;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+}
+
+.start-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.start-menu li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #c0c0c0;
+    font-family: Oxanium;
+}
+
+.start-menu li:last-child {
+    border-bottom: none;
+}
+
+.start-menu li:hover {
+    background-color: #0440ae;
+    color: white;
+}
+
+
+/* Icon styling within the start menu */
+.menu-icon {
+    width: 60px;  /* Set icon width */
+    height: 60px; /* Set icon height */
+    margin-right: 10px; /* Space between icon and text */
+    vertical-align: middle; /* Center-align icon with text */
+}
+
+.taskbar-item apps:hover{
+    transform: scale(1.1);
+
+}
+/* App icons in the taskbar */
+.apps .app-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.app-icon img {
+    width: 100%;
+    height: auto;
+}
+.app-icon:hover{
+    transform: scale(1.1);
+}
+
+/* Clock styling */
+.clock {
+    margin-left: auto;
+    color: #fff;
+    font-size: 16px;
+    font-family: Oxanium;
+    margin-right: 10px;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* Width of scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scroll thumb */
+    border-radius: 8px; /* Round the thumb */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Change color on hover */
+}
+
+
+
+.blackscreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    display: none;
+}
+ .blackscreen p {
+    color: white;
+    font-size: 24px;
+    font-family: Oxanium;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
