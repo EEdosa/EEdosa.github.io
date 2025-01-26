@@ -57,18 +57,18 @@ function showResume() {
   }
   
   function showAboutMe(){
-      document.getElementById("Educationmodal").style.display = "block";
-      document.getElementById("educationicon").style.display = "block";
+      document.getElementById("Aboutmodal").style.display = "block";
+      document.getElementById("aboutmeicon").style.display = "block";
   }
   
   function closeAboutMe(){
-      document.getElementById("Educationmodal").style.display = "none";
-      document.getElementById("educationicon").style.display = "none";
+      document.getElementById("Aboutmodal").style.display = "none";
+      document.getElementById("aboutmeicon").style.display = "none";
   }
   
   function minimizeAboutMe() {
-      document.getElementById("Educationmodal").style.display = "none";
-      document.getElementById("educationicon").style.display = "block";
+      document.getElementById("Aboutmodal").style.display = "none";
+      document.getElementById("aboutmeicon").style.display = "block";
   }
   
   
